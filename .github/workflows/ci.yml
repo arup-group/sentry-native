@@ -31,7 +31,7 @@ jobs:
 
     - name: Create Solution Files
       shell: cmd
-      run: '"%CMAKE_PATH%\cmake.exe" -B build -DSENTRY_BACKEND=crashpad'
+      run: '"%CMAKE_PATH%\cmake.exe" -B build -DSENTRY_BACKEND=crashpad -DCRASHPAD_ZLIB_SYSTEM=ON'
 
     - name: Build solution files
       run: '"%CMAKE_PATH%\cmake.exe" --build build --parallel --clean-first --config ${{ matrix.configuration }}'
