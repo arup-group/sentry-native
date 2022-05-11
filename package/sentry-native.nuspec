@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>sentry-native</id>
+    <version>1.0.8</version>
+    <title>sentry-native</title>
+    <authors>Peter Grainger</authors>
+    <owners>Oasys Arup</owners>
+    <description>Sentry error tracking native SDK</description>
+    <summary>Sentry native SDK</summary>
+    <tags>native</tags>
+  </metadata>
+</package>

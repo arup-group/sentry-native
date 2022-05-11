@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)..\native\$(BaseConfiguration.ToLower())\lib\sentry.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemGroup>
+    <SentryDLLs Include="$(MSBuildThisFileDirectory)..\native\$(BaseConfiguration.ToLower())\dll\*.dll" />
+    <Crashpad Include="$(MSBuildThisFileDirectory)..\native\$(BaseConfiguration.ToLower())\dll\crashpad_handler.exe" />
+  </ItemGroup>
+
+  <Target Name="CopyDebugDlls" AfterTargets="AfterBuild">
+    <Copy SourceFiles="@(SentryDLLs)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(Crashpad)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>
